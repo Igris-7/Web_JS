@@ -1,0 +1,762 @@
+:root{
+    --red:#ff2e63;
+    --black:#252a34;
+    --blue:#08d9d6;
+    --white:#eaeaea;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /*cuando aplique un padding, borde pero no al margen el contenedor no se agrande sino que el contenido se reajuste*/
+}
+
+body{
+    background: #fff;
+    overflow-x: hidden;
+    font-family: 'Raleway', sans-serif;
+}
+
+/**go top **/
+.go-top
+{
+position: fixed;
+bottom: 100px;
+right: 0px;
+width: 50px;
+height: 50px;
+border: 2px solid var(--red);
+background: #fff;
+z-index: 9999;
+display: flex;
+justify-content: center;
+align-items: center;
+cursor: pointer;
+transition: 0.5s;
+
+}
+
+.go-top:hover{
+    border: 2px solid var(--white);
+    background:var(--red);
+}
+
+.go-top span
+{
+    font-size :30px;
+    color: var(--black);
+}
+
+.go-top span:hover{
+    color: var(--white);
+
+}
+
+.skew
+{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    border-width: 0 0 10vh 100vw;
+    border-style: solid;
+    border-color: transparent transparent #fff transparent;
+}
+
+.skewArriba
+{
+    position: absolute;
+    top:0;
+    left: 0;
+    border-width: 10vh 100vw  0 0;
+    border-style: solid;
+    border-color:  #fff transparent transparent transparent;
+    z-index: 10;
+}
+
+/*Menu de Navegacion*/
+#header
+{
+    position: relative;
+    width: 100%;
+}
+
+.menu
+{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 60px;
+    background: #fff;
+    display: flex;
+    justify-content: space-between;/*igual espacio entre ellos el 1 y ultimo alineado con el borde*/
+    align-items: center; /*elementos centro de la caja*/
+    z-index: 9999;
+}
+
+.logo-box
+{
+    margin-left:20px;
+}
+
+.logo-box h1, .logo-box a
+{
+text-decoration: none;
+font-size: 35px;
+font-weight:400; /*grosor de letras*/
+color: var(--black);
+}
+
+.list-container
+{
+    margin-right: 20px; /*margen a la derecha del menu*/
+}
+
+.lists
+{
+display: flex;
+}
+
+.lists li 
+{
+    list-style: none;
+}
+
+.lists li , .lists a
+{
+    text-decoration: none;
+    margin: 0px 10px; /* 0 arriba abajo , 10 a los lados*/
+    padding: 8px;
+    color: var(--black);
+    border-radius: 24px;
+    font-size: 16px;
+    transition: 0.3s;
+}
+
+.lists a.active
+{
+    background: var(--red);
+    color:#fff;
+}
+
+
+.lists a:hover
+{
+    background: var(--red);
+    color:#fff;
+}
+
+
+.btn-menu > .fa-bars{
+    display:  none; /*desaparezca el icono de navegacion*/
+}
+
+/*img header */
+
+.img-header
+
+{
+    position: relative;
+    width: 100%;
+    height: 100vh;/*todo el height de la pantalla , viewport*/
+    background: url(../img/12.jpg);/*fondo*/
+    background-attachment: fixed; /*para que la imagen quede fija, no se movera co el contenedor*/
+    background-position: center;
+    background-size: cover;/*escala la imagen al mayor tamaño posible*/
+}
+
+.welcome /*para dar efecto de oscuridad*/
+{
+    position: absolute;/*hijo del relative se mueve con respecto a su posicion*/
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.6);
+    display: flex;
+    justify-content: center; /*al centro del contenedor flex*/
+    align-items: center;
+    flex-direction:column;/*se aplian los elementos de arriba a abajo*/
+}
+
+.welcome h1
+{
+font-size: 50px;
+color: #fff;
+font-weight: 200;
+}
+
+.welcome hr
+{
+width: 400px;
+height: 2px;
+background: #fff;
+border: none;
+margin-top: 5px;
+}
+
+.welcome p
+{
+    font-size:20px;
+    color: #fff;
+    margin-top: 20px;
+}
+
+/*    Boton */
+
+#abajo
+{
+    width: 170px;
+    height: 40px;
+    background: var(--red);
+    border-radius: 24px;
+    border: none;
+    font-size: 22px;
+    outline: none; /*el mismo grosor, estilo y/o anchura de todos los perfiles de un elemento.*/
+    color: #fff;
+    cursor: pointer;
+    text-align: center;
+    margin-top: 20px;
+    transition: 2s;
+
+}
+
+#abajo:hover
+{
+    background: var(--blue);
+}
+
+/*Acerca de Nosotros*/
+
+.acerca-de
+{
+    width: 100%;
+    margin-top: 120px;
+}
+
+.info-container
+{
+    width: 80%;
+    margin: auto ;/*centrar horizontalmente*/
+    display:flex;
+    justify-content: center;/*elementos centro del contenedor padre*/
+    flex-direction: column;
+}
+
+.info-container h1
+{
+    font-size: 40px;
+    font-weight: 400;
+    color: var(--black);
+    text-align: center;
+    margin-bottom: 20px;/*margin de abajo*/
+
+}
+
+.info-container p
+{
+    text-align: center;
+    font-size: 17px;
+    color: var(--black);
+    line-height: 30px; /*espacio entre lineas*/
+    margin: 10px 0px; 
+}
+
+.about-gallery
+{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin: 50px 0px;
+}
+
+.about-gallery img
+{
+    width: calc(30%);
+    height: 300px;
+    object-fit: cover; /*el  contenido reemplazado se redimensiona, lo ajsuta a la caja*/
+    margin: 10px 10px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.about-more
+{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.about-more button
+{
+    width: 120px;
+    height: 35px;
+    background: var(--red);
+    border-radius: 24px;
+    border: none;
+    font-size: 20px;
+    outline: none; /*el mismo grosor, estilo y/o anchura de todos los perfiles de un elemento.*/
+    color: #fff;
+    cursor: pointer;
+    text-align: center;
+    margin-top: 20px;
+    transition: 2s;
+}
+
+.about-more button:hover{
+    background: var(--blue);
+
+}
+
+/*Acerca de Nosotros 1:13:25*/
+
+/*NUestros proyectos*/
+
+.our-projects
+{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background: url(../img/5.jpg);
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
+    margin-top: 100px;
+}
+
+.deg-background
+{
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0, 0, 0.8);
+
+}
+
+.ejeZproject
+{
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.container-project
+{
+    width: 90%;
+    margin:auto;
+    padding-top: 100px;
+}
+
+.project-title
+{
+    border: 2px solid #fff;
+    padding: 10px;
+    text-align: center;
+    width: 50%;
+    margin: auto;
+}
+
+.project-title h2
+{
+    font-size: 35px;
+    color: #fff;
+    font-weight: normal;
+}
+
+.project-title hr
+{
+background: #fff ;
+width: 50%;
+margin:10px auto;
+}
+
+.project-img
+{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;/*el contenido que estaba en una sola fila se pasa a varias filas*/
+    margin-top: 50px;
+    padding-bottom: 80px;
+}
+
+.project-img img
+{
+    width: calc(24%);
+    height: 450px;
+    margin:10px;
+    object-fit: cover;
+    border-radius: 12px;
+    cursor: pointer;
+}
+
+/*Testimonios*/
+
+.testimonios
+{
+    width: 100%;
+    margin-top: 100px;
+}
+
+.testimonios-title
+{
+    width: 50%;
+    margin: auto;
+    text-align: center;
+}
+
+.testimonios-title h2
+{
+    font-size: 40px;
+    color: var(--black);
+    font-weight: normal;
+    margin-bottom: 10px;
+}
+
+.testimonios-title hr{
+    width: 50%;
+    margin: auto;
+    height: 2px;
+    background: var(--black);
+    border: none;
+}
+
+.box-testimonios
+{
+    width: 90%;
+    margin: 80px auto;
+
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.card-testimonio
+{
+width: 45%;
+margin: 20px;
+}
+
+.card-img
+{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card-img img
+{
+width: 150px;
+height: 150px;
+border-radius: 50%;
+object-fit: cover;
+cursor: pointer;
+}
+
+.testimonio-text
+{
+    width: 100%;
+    border: 2px solid var(--red);
+    padding: 15px;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: 20ms;
+    margin-top: 20px;
+}
+
+.testimonio-text h4{
+    color: var(--red);
+    font-weight: normal;
+    font-size: 20px;
+    text-align: center;
+    margin-bottom: 15px;
+    transition: 20ms;
+
+}
+
+.testimonio-text p
+{
+    font-size: 15px;
+    color: var(--black);
+    text-align: center;
+    line-height:25px ;/*espacio entre lineas*/
+    transition: 20ms;
+
+}
+
+.testimonio-text:hover
+{
+border: 2px solid var(--blue);
+}
+
+.testimonio-text:hover h4 
+{
+color: var(--blue);
+}
+
+/*Footer*/
+
+.footer
+{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background: url(../img/9.jpg);
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
+}
+
+.deg-footer
+{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: (0,0,0,0.6);
+}
+
+.ejeZfooter
+{
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.footer-content
+{
+    width: 90%;
+    padding-top: 100px;
+    margin: auto;
+}
+
+.footer-title
+{
+    width: 50%;
+    margin: auto;
+    border : 2px solid #fff;
+    padding: 13px;
+}
+
+.footer-title h2
+{
+    text-align: center;
+    color: #fff;
+    font-weight: normal;
+    font-size:30px;
+    padding: 5px;
+}
+
+.footer-title hr
+{
+    width: 80%;
+    margin: 10px auto;
+    border: none;
+    background: #fff;
+    height: 2px;
+}
+
+.formulario-content
+{
+    width: 60%;
+    background: #fff;
+    border-radius: 22px;
+    border: 2px solid var(--red);
+    margin: 50px auto;
+    padding: 30px;
+    box-shadow: 6px 6px 0px 6px rgba(0 ,0 ,0 ,0.4);
+}
+
+#formulario
+{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+#formulario label
+{
+text-align: center;
+color: var(--black);
+font-size: 18px;
+margin: 25px 0px 10px 0px; /*arriba derecha  abajo  izquierda*/
+}
+
+#formulario input
+{
+    width: 90%;
+    height: 35px;
+    margin: auto;
+    border: 2px solid var(--red);
+    border-radius: 18px;
+    outline: none; /*establece mismo grosor,anchura*/
+    text-align: center;
+    font-size: 14px;
+    color: var(--black);
+}
+
+#formulario textarea
+{
+    width: 90%;
+    height: 150px;
+    margin: auto;
+    border: 2px solid var(--red);
+    border-radius: 18px;
+    outline: none; /*establece mismo grosor,anchura*/
+    font-size: 14px;
+    color: var(--black);
+    padding: 15px;
+}
+
+.send
+{
+    width: 100%;
+    display: flex;
+    margin: 20px auto;
+    justify-content: center;
+}
+
+.send button
+{
+    width: 150px;
+    height: 40px;
+    background: var(--red);
+    border-radius: 24px;
+    border: none;
+    font-size: 22px;
+    outline: none; /*el mismo grosor, estilo y/o anchura de todos los perfiles de un elemento.*/
+    color: #fff;
+    cursor: pointer;
+    text-align: center;
+    margin-top: 20px;
+    transition: 1s;
+}
+
+.send button:hover
+{
+    background: var(--blue);
+}
+.mensaje-form
+{
+    text-align: center;
+}
+
+.footer-text
+{
+    position: relative;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 40px;
+    background: (0,0,0,0.8);
+    border-top:5px solid #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+}
+
+.footer-text p
+{
+color: #fff;
+font-size: 20px;
+}
+
+
+/*MEDIA QUERY*/
+
+@media screen and (max-width:900px)
+	{
+		.btn-menu > .fa-bars{
+                display:  block;
+                position: absolute;
+                top: 20px;
+                right: 30px;
+                font-size: 20px;
+                cursor: pointer;
+         }
+
+         .btn-menu > .fa-bars:hover{
+            color: var(--red);
+         }
+
+         .btn-menu > .fa-times:hover{
+            color: var(--red);
+         }
+
+         .list-container
+        {
+            position: absolute;
+            top: 60px;
+            left:-100%;
+            width: 100%;
+            height: calc(100vh);
+            background: #fff;
+        }
+
+        .lists{
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            border-top: 5px solid var(--red);
+        }
+
+        .lists li
+        {
+            width: 90%;
+            margin: 10px 0px;
+            border-bottom: 1px solid var(--red);
+            text-align: center;
+        } 
+
+        .lists a.active
+        {
+        background: none;
+        color: var(--red);
+        }
+
+        .lists a:hover
+        {
+        background: none;
+        color: var(--red);
+        }
+
+
+        .lists li , .lists a
+        {
+           font-size: 15px;
+           margin-bottom: 15px;
+        }
+
+        
+
+
+    }
+
+        
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
